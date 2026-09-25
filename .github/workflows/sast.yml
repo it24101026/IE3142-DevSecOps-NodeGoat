@@ -17,7 +17,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Run Semgrep
-        uses: semgrep/semgrep-action@v1
-        with:
-          config: auto
+      - name: Install Semgrep
+        run: pip install semgrep
+
+      - name: Run Semgrep Security Gate
+        run: semgrep scan --config auto --error .
