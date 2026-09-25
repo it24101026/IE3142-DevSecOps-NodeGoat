@@ -1,14 +1,16 @@
 name: SAST Security Scan
 
 on:
-  pull_request:
   push:
     branches:
+      - member-1
       - master
+  pull_request:
+  workflow_dispatch:
 
 jobs:
   semgrep:
-    name: Semgrep SAST Scan
+    name: Semgrep SAST Security Gate
     runs-on: ubuntu-latest
 
     steps:
